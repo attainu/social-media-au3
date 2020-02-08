@@ -9,9 +9,6 @@ function Post() {
     settext("");
     setshow(false);
   };
-  {
-    console.log(post);
-  }
   return (
     <div class="card text-white bg-secondary mb-3 mt-3" id="head">
       <div class="card-header text-left" onClick={() => setshow(!show)}>
