@@ -14,15 +14,14 @@ function Home() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-2" style={{ background: "#B2B09B" }}>
+        <div className="col-md-3" style={{ background: "#B2B09B" }}>
           {console.log(data)}
         </div>
-        <div className="col-md-5">
+
+        <div className="col-md-6">
           <Post />
-        </div>
-        <div className="col-md-5">
           {data.map((i, ind) => (
-            <div class="card mb-3 mt-3">
+            <div class="card mb-3 mt-3" key={ind}>
               <div class="card-header">{i.title}</div>
               <img src={i.urlToImage} alt="..." className="card-img-top" />
               <div class="card-body">
