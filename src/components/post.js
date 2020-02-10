@@ -1,36 +1,61 @@
 import React, { useState } from "react";
-import "./post.css";
-function Post() {
-  const [show, setshow] = useState(false);
+import { Modal, Button } from "react-bootstrap";
+
+function MyVerticallyCenteredModal(props) {
   const [text, settext] = useState("");
   const [post, setpost] = useState([]);
   const handlePost = () => {
     setpost([text, ...post]);
     settext("");
-    setshow(false);
+    props.onHide();
   };
   return (
-    <div class="card text-white bg-secondary mb-3 mt-3" id="head">
-      <div class="card-header text-left" onClick={() => setshow(!show)}>
-        Create Post
-      </div>
-      {show ? (
-        <div className="card">
-          <textarea
-            className="card-body"
-            value={text}
-            placeholder="Write Something here..."
-            style={{ border: "none" }}
-            onChange={e => settext(e.target.value)}
-          ></textarea>
-          <button className="btn btn-primary" onClick={handlePost}>
-            Post
-          </button>
-        </div>
-      ) : (
-        <p className="card-text"></p>
-      )}
-    </div>
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      {console.log(post)}
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Create Posts
+        </Modal.Title>
+      </Modal.Header>
+      <input
+        className="card-body"
+        value={text}
+        placeholder="Write Something here..."
+        style={{ border: "none" }}
+        col="80"
+        onChange={e => settext(e.target.value)}
+      />
+      <Modal.Footer>
+        <Button onClick={() => handlePost()}>Post</Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
+
+function Post() {
+  const [modalShow, setModalShow] = React.useState(false);
+
+  return (
+    <>
+      <Button
+        variant="info"
+        onClick={() => setModalShow(true)}
+        className="mt-3"
+      >
+        Create Post
+      </Button>
+
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+    </>
+  );
+}
+
 export default Post;
