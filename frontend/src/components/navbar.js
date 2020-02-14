@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 function NavBar() {
     return (
-        <Navbar collapseOnSelect expand="xl" style={{background:"#F4845F"}} variant="dark">
+        <Navbar collapseOnSelect expand="xl" style={{background:"#F4845F"}} variant="dark" sticky="top">
             <Navbar.Brand href="#home">socialme</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">

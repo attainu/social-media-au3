@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import { UserContext } from '../index'
 import useForm from './useForm'
-import validate from './SignInFormValidationRules'
+import validate from './rules//SignInFormValidationRules'
 
 const axios = require('axios');
 
@@ -20,7 +20,7 @@ function SignIn() {
         axios.post('/signin', values)
         .then(res => {
             setError(false);
-            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('user', JSON.stringify(res.data));
             history.push("/app/profile");
         })
         .catch(err => setError(true));

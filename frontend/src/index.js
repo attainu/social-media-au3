@@ -11,7 +11,7 @@ export const UserContext = React.createContext();
 
 function SocialMe() {
     const doRedirect = () => {
-        let loggedIn = localStorage.getItem('token');
+        let loggedIn = localStorage.getItem('user');
 
         if(loggedIn != undefined) {
             return <Redirect to="/app/profile"/>

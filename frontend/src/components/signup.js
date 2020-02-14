@@ -4,7 +4,7 @@ import { Alert } from 'react-bootstrap'
 
 import { UserContext } from '../index'
 import useForm from './useForm'
-import validate from './SignUpFormValidationRules'
+import validate from './rules/SignUpFormValidationRules'
 
 const axios = require('axios');
 
@@ -34,7 +34,7 @@ function SignUp() {
         axios.post('/signup', data)
         .then(res => {
             setError(false);
-            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('user', JSON.stringify(res.data));
             history.push("/app/profile");
         })
         .catch(err => setError(true));
