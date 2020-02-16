@@ -4,6 +4,8 @@ import { Container, Row, Col } from 'react-bootstrap'
 import SignIn from './signin'
 import SignUp from './signup'
 
+import './styles/sign.css'
+
 function Sign() {
     return (
         <div className="sign">

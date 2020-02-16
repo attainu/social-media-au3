@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 function NavBar() {
     return (
-        <Navbar collapseOnSelect expand="xl" style={{background:"#F4845F"}} variant="dark" sticky="top">
+        <Navbar collapseOnSelect expand="xl" style={{background:"#46AFB9"}} variant="dark" sticky="top">
             <Navbar.Brand href="#home">socialme</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -12,7 +12,7 @@ function NavBar() {
                     <div className="input-group mt-1">
                         <input type="text" size="40" className="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2"/>
                         <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button"><span className="fa fa-x fa-search"/></button>
+                            <button className="btn btn-light" type="button"><span className="fa fa-x fa-search"/></button>
                         </div>
                     </div>
                 </Nav>

@@ -29,7 +29,7 @@ export default function validate(values) {
     }
 
     if(!values.Password) {
-        errors.Password = "Password is required";
+        errors.Password = "Enter old or new password";
     }
     else if(!/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/.test(values.Password)) {
         errors.Password = "Atleast 8 characters, 1 UPPER and lower case, 1 special character";

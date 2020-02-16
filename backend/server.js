@@ -1,13 +1,13 @@
-require('dotenv').config();
-const express = require('express');
-const bodyParser = require('body-parser');
-const Sequelize = require('sequelize');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+require('dotenv').config()
+const express = require('express')
+const bodyParser = require('body-parser')
+const Sequelize = require('sequelize')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const auth = require('./middleware/auth')
+const { User } = require('./database')
 
 const app = express();
-
-const { User } = require('./database');
 
 app.use(bodyParser.json());
 
@@ -55,7 +55,7 @@ app.post('/signin', async(req, res) => {
     }
 })
 
-app.get('/userinfo/:email', async(req, res) => {
+app.get('/userinfo/:email', auth, async(req, res) => {
     let userData = await User.findAll({
         where: {Email: {[Sequelize.Op.eq]: req.params.email}}
     });
@@ -63,9 +63,18 @@ app.get('/userinfo/:email', async(req, res) => {
     res.json(userData[0].dataValues);
 })
 
-app.put('/update', async(req, res) => {
-    console.log(req.body);
-    res.json(req.body);
+app.put('/update/:email', auth, async(req, res) => {
+    try {
+        const hashPassword = await bcrypt.hash(req.body.Password, 10);
+        let userUpdate = await User.update(
+            {...req.body, Password: hashPassword},
+            {where: {Email: {[Sequelize.Op.eq]: req.params.email}}}
+        );
+        res.status(200).send();
+    }
+    catch {
+        return res.status(422).send();
+    }
 })
 
 app.listen(5000);

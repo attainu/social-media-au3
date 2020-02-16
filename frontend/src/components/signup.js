@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import { Alert } from 'react-bootstrap'
 
-import { UserContext } from '../index'
 import useForm from './useForm'
 import validate from './rules/SignUpFormValidationRules'
 
@@ -17,7 +16,6 @@ function SignUp() {
     });
     const history = useHistory();
 
-    const { setEmail } = useContext(UserContext);
     const [error, setError] = useState(false);
 
     useEffect(() => {
@@ -29,7 +27,6 @@ function SignUp() {
     }, []);
 
     function signup() {
-        setEmail(values.Email);
         const data = {...values, Country: location.country, State: location.state};
         axios.post('/signup', data)
         .then(res => {
@@ -77,11 +74,11 @@ function SignUp() {
             <div className="form-row">
                 <div className="form-group col-md-6">
                     <label htmlFor="SignUpCountry">Country</label>
-                    <input type="text" name="Country" className="form-control form-control-sm" id="SignUpCountry" value={location.country || ""} onChange={handleChange} required/>
+                    <input type="text" name="Country" className="form-control form-control-sm" id="SignUpCountry" value={location.country || ""} readOnly/>
                 </div>
                 <div className="form-group col-md-6">
                     <label htmlFor="SignUpState">State</label>
-                    <input type="text" name="State" className="form-control form-control-sm" id="SignUpState" value={location.state || ""} onChange={handleChange} required/>
+                    <input type="text" name="State" className="form-control form-control-sm" id="SignUpState" value={location.state || ""} readOnly/>
                 </div>
             </div>
             <div className="form-group">

@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom';
 
-import { UserContext } from '../index'
 import useForm from './useForm'
 import validate from './rules//SignInFormValidationRules'
 
@@ -12,11 +11,9 @@ function SignIn() {
 
     const { values, errors, handleSubmit, handleChange} = useForm(signin, validate);
     const [error, setError] = useState(false);
-    const { setEmail } = useContext(UserContext);
     const history = useHistory();
 
     function signin() {
-        setEmail(values.Email);
         axios.post('/signin', values)
         .then(res => {
             setError(false);

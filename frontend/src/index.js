@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import Sign from './components/sign'
 import App from './components/app'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-export const UserContext = React.createContext();
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function SocialMe() {
     const doRedirect = () => {
@@ -21,16 +19,12 @@ function SocialMe() {
         }
     }
 
-    const [email, setEmail] = useState("");
-
     return (
-        <UserContext.Provider value={{email, setEmail}}>
-            <Router>
-                <Route path="/sign" component={Sign}/>
-                <Route path="/app" component={App}/>
-                {doRedirect()}
-            </Router>
-        </UserContext.Provider>
+        <Router>
+            <Route path="/sign" component={Sign}/>
+            <Route path="/app" component={App}/>
+            {doRedirect()}
+        </Router>
     )
 }
 
