@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACF,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,OAAO;EACnB,+BAA+B;EAC/B,UAAU,EAAE,gDAAgD;EAC5D,gCAAgC;EAChC,UAAU,EAAE,wCAAwC;EACpD,sEAAsE;CACzE;;AAED,MAAM,MAAM,MAAM,MAAM,SAAS,EAAE,KAAK;EACpC,AAAA,KAAK,CAAC;IACF,MAAM,EAAE,KAAK;GAChB",
+    "sources": [
+        "sign.scss"
+    ],
+    "names": [],
+    "file": "sign.css"
+}
