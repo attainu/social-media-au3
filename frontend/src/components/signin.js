@@ -3,7 +3,7 @@ import { Alert } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom';
 
 import useForm from './useForm'
-import validate from './rules//SignInFormValidationRules'
+import validate from './rules/SignInFormValidationRules'
 
 const axios = require('axios');
 
@@ -14,7 +14,7 @@ function SignIn() {
     const history = useHistory();
 
     function signin() {
-        axios.post('/signin', values)
+        axios.post('/sign/signin', values)
         .then(res => {
             setError(false);
             localStorage.setItem('user', JSON.stringify(res.data));

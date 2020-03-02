@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Alert, Button } from 'react-bootstrap'
 
 import useForm from './useForm'
-import validate from './rules//UpdateFormValidationRules'
+import validate from './rules/UpdateFormValidationRules'
 import { EditContext } from './profile'
 
 const axios = require('axios')
@@ -15,7 +15,7 @@ function ProfileForm(props) {
         country: "",
         state: ""
     });
-    
+
     const [ fields, setFields ] = useState({
         Name: "",
         Email: "",
@@ -28,7 +28,7 @@ function ProfileForm(props) {
 
     const { allowEdit, setallowEdit } = useContext(EditContext);
     const [error, setError] = useState(false);
-    
+
     useEffect(() => {
         setFields({
             ...fields,
@@ -53,7 +53,7 @@ function ProfileForm(props) {
     function update() {
         setallowEdit(true);
         const data = {...values, Country: location.country, State: location.state};
-        axios.put(`/update/${JSON.parse(localStorage.getItem('user')).email}`, data, {
+        axios.put(`/profile/update/info/${JSON.parse(localStorage.getItem('user')).email}`, data, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
@@ -62,7 +62,7 @@ function ProfileForm(props) {
         .then(res => setError(false))
         .catch(err => setError(true));
     }
-    
+
     return (
         <form onSubmit={handleSubmit}>
             {
