@@ -16,7 +16,7 @@ function App() {
             history.push("/sign");
         }
         if(localStorage.getItem('user')) {
-            axios.get(`/userinfo/${JSON.parse(localStorage.getItem('user')).email}`, {
+            axios.get(`/profile/userinfo/${JSON.parse(localStorage.getItem('user')).email}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token

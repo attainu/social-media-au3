@@ -14,7 +14,7 @@ function Profile(props) {
         <Container>
             <Row className="justify-content-around align-items-stretch pt-3 pb-1">
                 <Col xs={6} md={3} sm={6} lg={2}>
-                    <ProfilePicture/>
+                    <ProfilePicture propic={props.data.Picture}/>
                 </Col>
                 <Col xs={8} md={5} sm={9} lg={5}>
                     <EditContext.Provider value={{allowEdit, setallowEdit}}>

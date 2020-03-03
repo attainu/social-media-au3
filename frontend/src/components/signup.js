@@ -28,7 +28,7 @@ function SignUp() {
 
     function signup() {
         const data = {...values, Country: location.country, State: location.state};
-        axios.post('/signup', data)
+        axios.post('/sign/signup', data)
         .then(res => {
             setError(false);
             localStorage.setItem('user', JSON.stringify(res.data));

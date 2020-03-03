@@ -5,6 +5,13 @@ module.exports = (sequelize, type) => {
             autoIncrement: true,
             primaryKey: true
         },
+        Picture: {
+            type: type.STRING,
+            defaultValue: "https://image.flaticon.com/icons/svg/2095/2095102.svg",
+            validate: {
+                notEmpty: true
+            }
+        },
         Name: {
             type: type.STRING,
             validate: {
