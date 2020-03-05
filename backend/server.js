@@ -16,7 +16,7 @@ const io = socketio(server);
 
 app.use('/sign', sign);
 app.use('/profile', profile);
-app.use('/post',post)
+app.use('/post', post);
 //---------------------------SOCKET.IO-----------------------------------------------//
 var users={}
 io.on('connect', (socket) => {

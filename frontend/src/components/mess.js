@@ -4,19 +4,19 @@ import io from "socket.io-client";
  import moment from 'moment';
 let socket;
 
-function Messenger() {
+function Messenger({ username }) {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [users, setusers] = useState([]);
   const [receiver, setrec] = useState();
 
-  const [username, setusrnm] = useState();
+  // const [username, setusrnm] = useState();
   const [change, setchange] = useState();
   const ENDPOINT = "localhost:5000";
 const room="a";
   useEffect(() => {
     socket = io(ENDPOINT)
-    socket.emit('join',{username:`${JSON.parse(localStorage.getItem("user")).Username}`,room:room},(error)=>{
+    socket.emit('join',{username:username ,room:room},(error)=>{
       if(error){
           console.log(error)
       }})
@@ -45,7 +45,7 @@ const room="a";
     e.preventDefault();
     if (message) {
       // socket.emit("join", `${JSON.parse(localStorage.getItem("user")).Username}`);
-      socket.emit("sendMessage",{username:`${JSON.parse(localStorage.getItem("user")).Username}`,message:message});
+      socket.emit("sendMessage",{username:username ,message:message});
     }
     setMessage("");
   };
@@ -109,8 +109,8 @@ const room="a";
 
           {messages
             ? messages.map((i, ind) => {
-             console.log(i.user,JSON.parse(localStorage.getItem("user")).Username)
-     return     <div className={`alert alert-secondary my-3 w-50 ${i.user===JSON.parse(localStorage.getItem("user")).Username?"ml-auto":""}`} key={ind}><p className=""> {i.user}:<span className="mx-2">{i.text}</span>
+            //  console.log(i.user,JSON.parse(localStorage.getItem("user")).Username)
+     return     <div className={`alert alert-secondary my-3 w-50 ${i.user===username?"ml-auto":""}`} key={ind}><p className=""> {i.user}:<span className="mx-2">{i.text}</span>
             </p><p className="text-right"><small>
            { moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}
             </small></p></div>
