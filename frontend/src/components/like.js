@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 const axios = require("axios");
-function Like({ postid, setflag, flag }) {
+function Like({ postid, setflag, flag ,username}) {
   const [likes, setlikes] = useState([]);
 
   const handleClick = id => {
-    var username = {
-      name: JSON.parse(localStorage.getItem("user")).Username
+    var usrname = {
+      name: username
     };
-    console.log(JSON.parse(localStorage.getItem("user")).Username);
+    // console.log(JSON.parse(localStorage.getItem("user")).Username);
     axios
-      .post(`/post/like/${id}`, username)
+      .post(`/post/like/${id}`, usrname)
       .then(res => {
         setlikes(res);
         setflag(!flag);

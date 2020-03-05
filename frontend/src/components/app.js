@@ -4,7 +4,8 @@ import { Route, Switch, useHistory } from 'react-router-dom'
 import NavBar from './navbar'
 import Profile from './profile'
 import Home from './home'
-// import Messenger from './mess'
+import Messenger from './mess'
+import Logout from './logout'
 const axios = require('axios')
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
             });
         }
     }, [])
-
+console.log(userData)
     return (
         <div className="body">
             <NavBar/>
@@ -41,7 +42,9 @@ function App() {
                     <Route exact path="/app/home" component={
                         () => <Home username={userData.Username}/>
                     }/>
-                    {/* <Route exact path="/app/messenger" component={Messenger}/>                     */}
+                    <Route exact path="/app/messenger" component={
+                        () => <Messenger username={userData.Username}/>}/>    
+                    <Route path="/app/logout" component={Logout}/>                
                 </Switch>
             </div>
         </div>

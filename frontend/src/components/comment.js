@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 const axios = require("axios");
 
-function Comment({ i }) {
+function Comment({ i,username }) {
   const [cshow, setcshow] = useState(true);
   const [comment, setcomment] = useState("");
   const [com, setcom] = useState([]);
@@ -11,7 +11,7 @@ function Comment({ i }) {
     console.log(comment);
     setcshow(!cshow);
     const dat = {
-      author: `${JSON.parse(localStorage.getItem("user")).Username}`,
+      author: username ,
       comment: comment
     };
     axios

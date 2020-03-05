@@ -15,7 +15,7 @@ function MyVerticallyCenteredModal(props) {
     settext("");
     props.onHide();
     const data = {
-      author: `${JSON.parse(localStorage.getItem("user")).Username}`,
+      author:props.username,
       posts: text,
       like: 0
     };
@@ -56,7 +56,7 @@ console.log(" posted mounted")
   );
 }
 
-function Post() {
+function Post({ username }) {
   const [modalShow, setModalShow] = React.useState(false);
   const [posts, setposts] = useState([]);
   // const [likes, setlikes] = useState([]);
@@ -100,6 +100,7 @@ function Post() {
         onHide={() => setModalShow(false)}
         setflag={setflag}
         flag={flag}
+        username={ username }
       />
       {posts.length > 0
         ? posts.map((i, ind) => (
@@ -116,17 +117,17 @@ function Post() {
                   <div className="col-2 d-flex justify-content-center align-items-center">
                   {(i.like && (
                   i.like.indexOf(
-                    JSON.parse(localStorage.getItem("user")).Username
+                     username 
                   ) >= 0
                 )              
                 ) ? (
-                  <Dislike postid={i.id} setflag={setflag} flag={flag} />
+                  <Dislike postid={i.id} setflag={setflag} flag={flag} username={ username }/>
                 ) : (
-                  <Like postid={i.id} setflag={setflag} flag={flag} />
+                  <Like postid={i.id} setflag={setflag} flag={flag} username={ username } />
                 )}
                   </div>
                   <div className="col-10">
-                  <Comment i={i} />
+                  <Comment i={i} username={ username }/>
                   </div>
                
                 {/* <i class="fa fa-comments">{i.comment}</i> */}

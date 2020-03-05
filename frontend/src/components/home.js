@@ -22,7 +22,7 @@ function Home({ username }) {
             <Authorize/>
             <div className="row d-flex justify-content-center">
                 <div className="col-md-10">
-                <Post/>
+                <Post username={username}/>
                 {data.map((i, ind) => (
                     <div className="card mb-3 mt-3">
                         <div className="card-header">{i.title}</div>

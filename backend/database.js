@@ -2,10 +2,7 @@ const Sequelize = require('sequelize')
 const UserModel = require('./models/usermodel')
 const PostModel = require('./models/postmodel')
 
-const sequelize = new Sequelize('projectrial', 'postgres', 'sreerup', {
-    host: 'localhost',
-    dialect: 'postgres'
-});
+const sequelize = new Sequelize('postgres://lzrnuaio:k2PvcmKl9Q9BOSsi6uS35DaxEyM8et44@rajje.db.elephantsql.com:5432/lzrnuaio',{logging:false});
 
 sequelize
 .authenticate()
