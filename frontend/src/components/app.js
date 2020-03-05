@@ -13,9 +13,6 @@ function App() {
     const history = useHistory();
 
     useEffect(() => {
-        // if(history.action === "POP") {
-        //     history.push("/sign");
-        // }
         if(localStorage.getItem('user')) {
             axios.get(`/profile/userinfo/${JSON.parse(localStorage.getItem('user')).email}`, {
                 headers: {
@@ -41,7 +38,9 @@ function App() {
                     <Route exact path="/app/profile" component={
                         () => <Profile data={userData}/>
                     }/>
-                    <Route exact path="/app/home" component={Home}/>
+                    <Route exact path="/app/home" component={
+                        () => <Home username={userData.Username}/>
+                    }/>
                     {/* <Route exact path="/app/messenger" component={Messenger}/>                     */}
                 </Switch>
             </div>
