@@ -9,6 +9,6 @@ const app = express();
 
 app.use('/sign', sign);
 app.use('/profile', profile);
-app.use('/post',post)
+app.use('/post', post);
 //---------------------------SOCKET.IO-----------------------------------------------//
 app.listen(5000);
