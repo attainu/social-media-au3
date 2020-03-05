@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap'
 
 import ProfilePicture from './profilepicture'
 import ProfileForm from './profileform'
+import Authorize from '../authorize';
 
 export const EditContext = React.createContext();
 
@@ -12,6 +13,7 @@ function Profile(props) {
 
     return (
         <Container>
+            <Authorize/>
             <Row className="justify-content-around align-items-stretch pt-3 pb-1">
                 <Col xs={6} md={3} sm={6} lg={2}>
                     <ProfilePicture propic={props.data.Picture}/>

@@ -8,22 +8,23 @@ import App from './components/app'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function SocialMe() {
-    const doRedirect = () => {
-        let loggedIn = localStorage.getItem('user');
+    let loggedIn = localStorage.getItem('user');
+    // const doRedirect = () => {
 
-        if(loggedIn != undefined) {
-            return <Redirect to="/app/profile"/>
-        }
-        else {
-            return <Redirect to="/sign"/>
-        }
-    }
+    //     if(loggedIn != undefined) {
+    //         return <Redirect to="/app/profile"/>
+    //     }
+    //     else {
+    //         return <Redirect to="/sign"/>
+    //     }
+    // }
 
     return (
         <Router>
-            <Route path="/sign" component={Sign}/>
-            <Route path="/app" component={App}/>
-            {doRedirect()}
+        <Route exact path="/" component={()=><Redirect to="/app/home"/>}/>
+            <Route path="/sign" component={Sign}/> 
+             <Route path="/app" component={App}/> 
+      
         </Router>
     )
 }
