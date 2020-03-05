@@ -5,7 +5,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 function NavBar() {
     return (
         <Navbar collapseOnSelect expand="xl" style={{background:"#46AFB9"}} variant="dark" sticky="top">
-            <Navbar.Brand href="#home">socialme</Navbar.Brand>
+            <Navbar.Brand href="/app/home">socialme</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto"> 
@@ -22,7 +22,7 @@ function NavBar() {
                         <NavDropdown.Divider/>
                         <NavDropdown.Item href="#signout">Sign Out</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="#messenger">Messenger</Nav.Link>
+                    <Nav.Link href="/app/messenger">Messenger</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

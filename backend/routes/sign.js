@@ -44,9 +44,11 @@ router.post('/signin', async(req, res) => {
 
     if(await bcrypt.compare(req.body.Password, user[0].dataValues.Password)) {
         const payload = user[0].dataValues;
-        const {ID,Name,email,Username,DOB,Country, State,Gender} = payload;
+        // const token = jwt.sign(payload, process.env.SECRET_OR_KEY);
+        // res.json({Email: payload.Email, token: token});
+        const {ID,Name,Email,Username,DOB,Country, State,Gender} = payload;
         const token = jwt.sign(payload, process.env.SECRET_OR_KEY);
-        res.json({ID,Name,email,Username,DOB,Country,State,Gender,token});
+        res.json({ID,Name,Email,Username,DOB,Country,State,Gender,token});
     }
     else {
         res.status(500).send();
