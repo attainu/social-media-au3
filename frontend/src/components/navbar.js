@@ -20,7 +20,7 @@ function NavBar() {
                     <NavDropdown title="Me" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="/app/profile">Profile</NavDropdown.Item>
                         <NavDropdown.Divider/>
-                        <NavDropdown.Item href="#signout">Sign Out</NavDropdown.Item>
+                        <NavDropdown.Item href="/app/logout">Sign Out</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link href="/app/messenger">Messenger</Nav.Link>
                 </Nav>

@@ -5,6 +5,7 @@ import NavBar from './navbar'
 import Profile from './profile'
 import Home from './home'
 import Messenger from './mess'
+import Logout from './logout'
 const axios = require('axios')
 
 function App() {
@@ -41,7 +42,9 @@ console.log(userData)
                     <Route exact path="/app/home" component={
                         () => <Home username={userData.Username}/>
                     }/>
-                    <Route exact path="/app/messenger" component={() => <Messenger username={userData.Username}/>}/>                    
+                    <Route exact path="/app/messenger" component={
+                        () => <Messenger username={userData.Username}/>}/>    
+                    <Route path="/app/logout" component={Logout}/>                
                 </Switch>
             </div>
         </div>
