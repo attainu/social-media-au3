@@ -4,6 +4,7 @@ import { Route, Switch, useHistory } from 'react-router-dom'
 import NavBar from './navbar'
 import Profile from './profile'
 import Home from './home'
+import Search from './search'
 import Messenger from './mess'
 import Logout from './logout'
 const axios = require('axios')
@@ -30,7 +31,7 @@ function App() {
             });
         }
     }, [])
-console.log(userData)
+
     return (
         <div className="body">
             <NavBar/>
@@ -42,8 +43,10 @@ console.log(userData)
                     <Route exact path="/app/home" component={
                         () => <Home username={userData.Username}/>
                     }/>
+                    <Route exact path="/app/search/:name" component={Search}/>
                     <Route exact path="/app/messenger" component={
-                        () => <Messenger username={userData.Username}/>}/>    
+                        () => <Messenger username={userData.Username} profilePicture={userData.Picture}/>
+                    }/>    
                     <Route path="/app/logout" component={Logout}/>                
                 </Switch>
             </div>

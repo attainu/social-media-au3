@@ -7,7 +7,7 @@ module.exports = (sequelize, type) => {
         },
         Picture: {
             type: type.STRING,
-            defaultValue: "https://image.flaticon.com/icons/svg/2095/2095102.svg",
+            defaultValue: "https://image.flaticon.com/icons/svg/1077/1077012.svg",
             validate: {
                 notEmpty: true
             }
