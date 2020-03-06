@@ -32,7 +32,7 @@ function SignUp() {
         .then(res => {
             setError(false);
             localStorage.setItem('user', JSON.stringify(res.data));
-            history.push("/app/profile");
+            history.push("/app/home");
         })
         .catch(err => setError(true));
     }

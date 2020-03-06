@@ -26,7 +26,6 @@ router.post("/posts", async (req, res) => {
   });
 
   router.post("/like/:id", async (req, res) => {
-    // console.log(req.params.id);
   
     Post.findOne({ where: { id: req.params.id } })
       .then(result => {
@@ -34,7 +33,6 @@ router.post("/posts", async (req, res) => {
           var newArr = [req.body.name];
           var arr = newArr.concat(result.like);
         
-          // console.log(result);
           Post.update(
             {
               author: result.author,
@@ -53,16 +51,13 @@ router.post("/posts", async (req, res) => {
   });
 
   router.post("/dislike/:id", async (req, res) => {
-    // console.log(req.params.id);
   
     Post.findOne({ where: { id: req.params.id } })
       .then(result => {
         const index = result.like.indexOf(req.body.name);
-        // console.log("ind" + index);
         var newArr = result.like;
         newArr.splice(index, 1);
        
-        // console.log(newArr);
         Post.update(
           {
             author: result.author,
@@ -80,7 +75,6 @@ router.post("/posts", async (req, res) => {
   });
 
   router.post("/comment/:id", async (req, res) => {
-    // console.log(req.params.id);
   
     Post.findOne({ where: { id: req.params.id } })
       .then(result => {
@@ -109,7 +103,6 @@ router.post("/posts", async (req, res) => {
     let PostData = await Post.findAll({
       where: { id: { [Sequelize.Op.eq]: req.params.id } }
     });
-    // console.log(PostData);
     res.json(PostData[0].dataValues);
   });
 

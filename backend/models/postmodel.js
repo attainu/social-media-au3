@@ -6,9 +6,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       author: {
         type: DataTypes.STRING
-        // validate: {
-        //     notEmpty: true
-        // }
       },
       posts: {
         type: DataTypes.TEXT,
@@ -28,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       freezeTableName: true
-      // timestamps: false
     },
     {
       hooks: {
@@ -36,7 +32,6 @@ module.exports = (sequelize, DataTypes) => {
           const checkArrayData = field => {
             if (Array.isArray(field) === false) {
               field = field.split(",");
-              console.log(field);
             }
             return field;
           };

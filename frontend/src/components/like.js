@@ -7,7 +7,6 @@ function Like({ postid, setflag, flag ,username}) {
     var usrname = {
       name: username
     };
-    // console.log(JSON.parse(localStorage.getItem("user")).Username);
     axios
       .post(`/post/like/${id}`, usrname)
       .then(res => {
@@ -20,7 +19,7 @@ function Like({ postid, setflag, flag ,username}) {
   };
   return (
     <>
-      <i class="far fa-thumbs-up text-success" onClick={() => handleClick(postid)}></i>
+      <i className="far fa-thumbs-up text-success" onClick={() => handleClick(postid)}></i>
     </>
   );
 }
