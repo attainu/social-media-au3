@@ -10,7 +10,7 @@ const axios = require("axios")
 function MyVerticallyCenteredModal(props) {
 
     const [text, settext] = useState("");
-    const [post, setpost] = useState([]);
+    // const [post, setpost] = useState([]);
     
     const handlePost = () => {
         settext("");

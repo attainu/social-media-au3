@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 const axios = require("axios");
 
 function Comment({ i,username }) {
@@ -48,7 +48,7 @@ function Comment({ i,username }) {
           onClick={() => handleClick(i.id)}
         ></i>
       </div>
-    { cshow?( com?com.map(i =>{console.log("com",i)
+    { cshow?( com?com.map(i =>{
       return(i!==null)?
       (
             <div className="alert alert-secondary p-1">
