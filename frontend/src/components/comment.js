@@ -15,10 +15,10 @@ function Comment({ i,username }) {
       comment: comment
     };
     axios
-      .post(`/post/comment/${id}`, dat)
+      .post(`/api/post/comment/${id}`, dat)
       .then(res =>{
         axios
-        .get(`/post/comments/${id}`)
+        .get(`/api/post/comments/${id}`)
         .then(res => res.data)
         .then(result => setcom(result.comment)); setcomment('')} )
       .catch(error => {
@@ -29,7 +29,7 @@ function Comment({ i,username }) {
     setcshow(!cshow);
 
     axios
-      .get(`/post/comments/${id}`)
+      .get(`/api/post/comments/${id}`)
       .then(res => res.data)
       .then(result => setcom(result.comment));
   };
