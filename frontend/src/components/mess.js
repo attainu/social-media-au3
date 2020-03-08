@@ -35,9 +35,9 @@ function Messenger({ username, profilePicture }) {
 		};
 	}, [messages, users]);
 
-	useEffect(() => {
-		fetch('/').then(res => res).then(chat => (chat))
-	}, [])
+	// useEffect(() => {
+	// 	fetch('/').then(res => res).then(chat => (chat))
+	// }, [])
 
 	const sendMessage = e => {
 		e.preventDefault();

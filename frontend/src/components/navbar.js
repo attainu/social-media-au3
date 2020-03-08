@@ -15,17 +15,17 @@ function NavBar() {
                     <div className="input-group mt-1">
                         <input type="text" size="40" className="form-control" onChange={(e) => setName(e.target.value)} placeholder="Search name" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
                         <div className="input-group-append">
-                            <Link className="btn btn-light" to={`/app/search/${name}`}><span className="fa fa-x fa-search"/></Link>
+                            <Link className="btn btn-light" to={`/search/${name}`}><span className="fa fa-x fa-search"/></Link>
                         </div>
                     </div>
                 </Nav>
                 <Nav>
                     <NavDropdown title="Me" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="/app/profile">Profile</NavDropdown.Item>
+                        <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                         <NavDropdown.Divider/>
-                        <NavDropdown.Item href="/app/logout">Sign Out</NavDropdown.Item>
+                        <NavDropdown.Item href="/logout">Sign Out</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="/app/messenger">Messenger</Nav.Link>
+                    <Nav.Link href="/messenger">Messenger</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
