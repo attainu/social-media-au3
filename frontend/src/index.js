@@ -10,11 +10,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function SocialMe() {
     return (
         <Router>
-            <Route exact path="/" component={
-                () => <App/>
-            }/>
+            {/* <Route exact path="/" component={
+                () => <Redirect to="/app/home"/>
+            }/> */}
             <Route path="/sign" component={Sign}/> 
-            {/* <Route path="/" component={App}/> */}
+            <Route path="/" component={App}/>
         </Router>
     )
 }
