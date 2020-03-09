@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 
+import './styles/navbar.css'
+
 function NavBar() {
 
     const [ name, setName ] = useState();
