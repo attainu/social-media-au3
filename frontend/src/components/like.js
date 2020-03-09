@@ -8,7 +8,7 @@ function Like({ postid, setflag, flag ,username}) {
       name: username
     };
     axios
-      .post(`/post/like/${id}`, usrname)
+      .post(`/api/post/like/${id}`, usrname)
       .then(res => {
         setlikes(res);
         setflag(!flag);

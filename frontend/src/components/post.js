@@ -21,7 +21,7 @@ function MyVerticallyCenteredModal(props) {
         like: 0
         };
         axios
-        .post("/post/posts", data)
+        .post("/api/post/posts", data)
         .then(res => props.setflag(!props.flag))
         .catch(error => {
             console.log(error);
@@ -60,7 +60,7 @@ function Post({ username }) {
 
     useEffect(() => {
         axios
-            .get("/post/posts")
+            .get("/api/post/posts")
             .then(res => res.data)
             .then(result => setposts(result));
     }, [flag]);

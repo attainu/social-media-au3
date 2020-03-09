@@ -25,7 +25,7 @@ router.put('/update/picture/:email', auth, multipartMiddleware, async(req, res) 
     cloudinary.uploader.upload(
         req.files.proPic.path,
         {
-            folder: "socialme/profile_picture/",
+            folder: "profile_picture/",
             cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
             api_key: process.env.CLOUDINARY_API_KEY,
             api_secret: process.env.CLOUDINARY_API_SECRET
@@ -42,7 +42,6 @@ router.put('/update/picture/:email', auth, multipartMiddleware, async(req, res) 
         }
     )
 })
-
 
 router.put('/update/info/:email', auth, async(req, res) => {
     try {

@@ -26,7 +26,7 @@ function ProfilePicture(props) {
             const formData = new FormData();
             formData.append("proPic", picture);
 
-            axios.put(`/profile/update/picture/${JSON.parse(localStorage.getItem('user')).email}`, formData, {
+            axios.put(`/api/profile/update/picture/${JSON.parse(localStorage.getItem('user')).email}`, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token

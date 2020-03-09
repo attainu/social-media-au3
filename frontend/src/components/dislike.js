@@ -10,7 +10,7 @@ function Dislike({ postid, setflag, flag, username }) {
         var usrname = {
             name: username
         };
-        axios.post(`/post/dislike/${id}`, usrname)
+        axios.post(`/api/post/dislike/${id}`, usrname)
         .then(res => {
             setdislikes(res);
             setflag(!flag);
