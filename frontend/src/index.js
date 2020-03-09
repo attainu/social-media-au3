@@ -11,10 +11,10 @@ function SocialMe() {
     return (
         <Router>
             <Route exact path="/" component={
-                () => <Redirect to="/home"/>
+                () => <App/>
             }/>
             <Route path="/sign" component={Sign}/> 
-            <Route path="/" component={App}/>
+            {/* <Route path="/" component={App}/> */}
         </Router>
     )
 }
