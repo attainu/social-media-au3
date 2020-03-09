@@ -8,7 +8,7 @@ function NavBar() {
 
     return (
         <Navbar collapseOnSelect expand="xl" style={{background:"#46AFB9"}} variant="dark" sticky="top">
-            <Navbar.Brand href="/app/home">socialme</Navbar.Brand>
+            <Navbar.Brand><Link to="/app/home">socialme</Link></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto"> 
@@ -21,11 +21,11 @@ function NavBar() {
                 </Nav>
                 <Nav>
                     <NavDropdown title="Me" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="/app/profile">Profile</NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/app/profile">Profile</Link></NavDropdown.Item>
                         <NavDropdown.Divider/>
-                        <NavDropdown.Item href="/app/logout">Sign Out</NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/app/logout">Sign Out</Link></NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="/app/messenger">Messenger</Nav.Link>
+                    <Nav.Link><Link to="/app/messenger">Messenger</Link></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
