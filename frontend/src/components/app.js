@@ -37,14 +37,14 @@ function App() {
             <NavBar/>
             <div>
                 <Switch>
-                    <Route exact path="/profile" component={
+                    <Route exact path="/app/profile" component={
                         () => <Profile data={userData}/>
                     }/>
-                    <Route exact path="/home" component={
+                    <Route exact path="/app/home" component={
                         () => <Home username={userData.Username}/>
                     }/>
-                    <Route exact path="/search/:name" component={Search}/>
-                    <Route exact path="/messenger" component={
+                    <Route exact path="/app/search/:name" component={Search}/>
+                    <Route exact path="/app/messenger" component={
                         () => <Messenger username={userData.Username} profilePicture={userData.Picture}/>
                     }/>    
                     <Route path="/logout" component={Logout}/>                
