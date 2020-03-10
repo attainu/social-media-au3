@@ -1,4 +1,4 @@
-Demo [SocialMe](https://socialme2020.herokuapp.com/).
+Demo [SocialMe](https://socialme2020.herokuapp.com/)
 
 ## Technologies used
 
