@@ -47,7 +47,7 @@ function App() {
                     <Route exact path="/app/messenger" component={
                         () => <Messenger username={userData.Username} profilePicture={userData.Picture}/>
                     }/>    
-                    <Route path="/logout" component={Logout}/>                
+                    <Route path="/app/logout" component={Logout}/>                
                 </Switch>
             </div>
         </div>
