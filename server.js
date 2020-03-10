@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const path = require('path')
 const socketio = require('socket.io');
 const cors = require('cors');
 const http = require('http');
@@ -8,8 +9,6 @@ const sign = require('./backend/routes/sign')
 const profile = require('./backend/routes/profile')
 const post = require('./backend/routes/post')
 const search = require('./backend/routes/search')
-
-const PORT = process.env.PORT;
 
 const app = express();
 app.use(cors());
@@ -53,6 +52,7 @@ io.on('connect', (socket) => {
     //   }
     })
   });
+
   if (process.env.NODE_ENV === "production") {
     app.use(express.static("frontend/build")); // serve the static react app
     app.get(/^\/(?!api).*/, (req, res) => {
@@ -61,6 +61,6 @@ io.on('connect', (socket) => {
     });
     console.log("Serving React App...");
   }
-  
-  server.listen(PORT||5000);
+
+  server.listen(process.env.PORT || 5000);
 // app.listen(5000);
