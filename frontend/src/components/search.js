@@ -13,7 +13,7 @@ function Search() {
     const [user, setUser] = useState([]);
 
     useEffect(() => {
-        axios.get(`/search/username/${name}`)
+        axios.get(`/api/search/username/${name}`)
         .then(res => {
             setError(false);
             setUser(res.data);

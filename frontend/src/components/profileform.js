@@ -53,7 +53,7 @@ function ProfileForm(props) {
     function update() {
         setallowEdit(true);
         const data = {...values, Country: location.country, State: location.state};
-        axios.put(`/profile/update/info/${JSON.parse(localStorage.getItem('user')).Email}`, data, {
+        axios.put(`/api/profile/update/info/${JSON.parse(localStorage.getItem('user')).Email}`, data, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token

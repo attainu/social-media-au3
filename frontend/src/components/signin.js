@@ -14,7 +14,7 @@ function SignIn() {
     const history = useHistory();
 
     function signin() {
-        axios.post('/sign/signin', values)
+        axios.post('/api/sign/signin', values)
         .then(res => {
             setError(false);
             localStorage.setItem('user', JSON.stringify(res.data));

@@ -11,7 +11,7 @@ function Messenger({ username, profilePicture }) {
 	const [receiver, setrec] = useState();
 	// const [change, setchange] = useState();
 
-	const ENDPOINT = "localhost:5000";
+	const ENDPOINT = "https://socialme2020.herokuapp.com";
 	const room="a";
 
 	useEffect(() => {
